@@ -1,0 +1,85 @@
+#:kivy 1.0
+
+MainScreen:
+
+<MainScreen>:
+    GridLayout:
+        cols: 2
+        AnchorLayout:
+            anchor_y: 'top'
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                md_bg_color: app.theme_cls.primary_color
+                padding: 16, 16, 16,16
+                spacing:16
+                MDLabel:
+                    id: status
+                    text: "Status Server: " + root.status_id_text
+                    halign: "left"
+                    color: 'white'
+                    size_hint: 1, None
+                    height: 40
+
+                MDLabel:
+                    id: server_ip
+                    text: root.local_server
+                    halign: "left"
+                    color: 'white'
+                    size_hint: 1, None
+                    height: 40
+                MDLabel:
+                    text:  "Vendor ID"
+                    halign: "left"
+                    color: 'white'
+                    size_hint: 1, None
+                    height: 50
+
+                MDTextField:
+                    id: vendor_id
+                    text: root.vendor_id_text
+                    mode: "round"
+                    md_bg_color: 'white'
+                    text_color: 'black'
+
+                MDLabel:
+                    text: "Product ID"
+                    halign: "left"
+                    size_hint: 1, None
+                    color: 'white'
+                    height: 50
+
+                MDTextField:
+                    id: product_id
+                    text: root.product_id_text
+                    mode: "round"
+
+                MDLabel:
+                    text: "Server Port"
+                    halign: "left"
+                    size_hint: 1, None
+                    color: 'white'
+                    height: 50
+
+                MDTextField:
+                    id: server_port
+                    text: root.server_port
+                    mode: "round"
+
+                MDFillRoundFlatButton:
+                    id: save_btn
+                    text: "Aktifkan"
+                    text_coloe: 'black'
+                    adaptive_width: True
+                    line_color: "white"
+                    size_hint_x: 1
+                    on_release: root.on_save_value()
+
+        AnchorLayout:
+            anchor_y: 'center'
+            padding: 16, 16, 16, 16
+            AsyncImage:
+                source: 'https://rmp-dev.sandbox-138957.com/assets/images/rmp-logo.png'
+                fit_mode: 'contain'
+                size_hint_x: 0.7
+                allow_stretch: True
